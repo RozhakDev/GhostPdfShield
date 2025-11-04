@@ -11,7 +11,7 @@ FINAL_OUTPUT="$3"
 echo "[5/6] Securing PDF (extract=no, modify=none)..."
 
 qpdf --encrypt "" "$OWNER_PASS" 256 \
-    --modify=none --extract=n --accessibility=n \
+    --modify=none --extract=n \
     -- "$INPUT_PDF" "$FINAL_OUTPUT"
 
 echo "[5/6] Done → $FINAL_OUTPUT"
