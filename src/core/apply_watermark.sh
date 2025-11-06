@@ -4,6 +4,7 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMP_DIR="$1"
 WATERMARK_FILE="$2"
 COUNT_PER_PAGE="${3:-5}"
@@ -21,6 +22,12 @@ fi
 
 echo "[3/6] Embedding watermarks ($COUNT_PER_PAGE per page)..."
 
+FONT_DIR="$SCRIPT_DIR/../../assets/fonts"
+AVAILABLE_FONTS=()
+if [ -d "$FONT_DIR" ]; then
+    mapfile -t AVAILABLE_FONTS < <(find "$FONT_DIR" -name "*.ttf" -o -name "*.otf" | sort)
+fi
+
 for img in "$TEMP_DIR"/page-*.png; do
     [ ! -f "$img" ] && continue
 
@@ -34,8 +41,13 @@ for img in "$TEMP_DIR"/page-*.png; do
         Y=$((RANDOM % (HEIGHT - 100) + 50))
         ANGLE=$((RANDOM % 360))
 
+        FONT_ARG="DejaVu-Sans"
+        if [ ${#AVAILABLE_FONTS[@]} -gt 0 ]; then
+            FONT_ARG="${AVAILABLE_FONTS[$RANDOM % ${#AVAILABLE_FONTS[@]}]}"
+        fi
+        
         convert "$edited_img" \
-            -font "DejaVu-Sans" \
+            -font "$FONT_ARG" \
             -pointsize 48 \
             -fill "rgba(0,0,0,0.13)" \
             -stroke "white" -strokewidth 1 \
