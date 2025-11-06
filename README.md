@@ -1,5 +1,7 @@
 # GhostPdfShield - Invisible PDF Fortress
 
+![GhostPdfShield Banner](https://github.com/user-attachments/assets/875696e5-229a-4c60-ae93-f435d60cd860)
+
 **Lindungi tugasmu seperti hantu tak terlihat — anti-copas, anti-OCR, tetap bisa dibaca.**
 
 CLI tool untuk secure PDF: konversi ke gambar, tambah blur/noise, watermark acak, lock dengan qpdf (extract=no, modify=none). Tanpa password user, tapi tak tergoyahkan.
