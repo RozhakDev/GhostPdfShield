@@ -15,8 +15,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CORE_DIR="$SCRIPT_DIR/../core"
-CONFIG_DIR="$SCRIPT_DIR/../config"
+CORE_DIR="$SCRIPT_DIR/src/core"
+CONFIG_DIR="$SCRIPT_DIR/src/config"
 TEMP_DIR="$(pwd)/temp"
 WATERMARK_FILE="$CONFIG_DIR/watermark_list.txt"
 
