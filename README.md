@@ -8,6 +8,30 @@ CLI tool untuk secure PDF: konversi ke gambar, tambah blur/noise, watermark acak
 
 ## Installation
 
+### Windows
+
+Untuk Windows, Docker adalah metode paling sederhana dan efisien:
+
+1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
+2. Clone GhostPdfShield:
+   
+   ```bash
+   git clone https://github.com/RozhakDev/GhostPdfShield.git
+   cd GhostPdfShield
+   ```
+3. Build image Docker:
+   
+   ```bash
+   docker build -t ghostpdfshield .
+   ```
+4. Gunakan GhostPdfShield:
+   
+   ```bash
+   docker run --rm -v "$(pwd)":/app/workdir ghostpdfshield workdir/input.pdf --output workdir/output.pdf
+   ```
+
+### Linux/macOS
+
 ```bash
 git clone https://github.com/RozhakDev/GhostPdfShield.git
 cd GhostPdfShield

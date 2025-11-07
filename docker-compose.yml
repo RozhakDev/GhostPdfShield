@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  ghostpdfshield:
+    build: .
+    volumes:
+      - .:/app/workdir
+    working_dir: /app/workdir
+    stdin_open: true
+    tty: true
+    command: ["./ghostpdfshield", "--help"]
