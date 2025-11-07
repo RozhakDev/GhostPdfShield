@@ -10,8 +10,6 @@ CLI tool untuk secure PDF: konversi ke gambar, tambah blur/noise, watermark acak
 
 ### Windows
 
-Untuk Windows, Docker adalah metode paling sederhana dan efisien:
-
 1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
 2. Clone GhostPdfShield:
    
