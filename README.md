@@ -23,9 +23,21 @@ CLI tool untuk secure PDF: konversi ke gambar, tambah blur/noise, watermark acak
    docker build -t ghostpdfshield .
    ```
 4. Gunakan GhostPdfShield:
+
+   **PowerShell:**
+   ```powershell
+   $fullpath = $PWD.Path -replace '\\','/'
+   docker run --rm -v "${fullpath}:/app/workdir" ghostpdfshield sh -c "./ghostpdfshield /app/workdir/examples/input_tugas.pdf --output /app/workdir/output.pdf"
+   ```
    
+   **Command Prompt:**
+   ```cmd
+   docker run --rm -v "%cd%:/app/workdir" ghostpdfshield sh -c "./ghostpdfshield /app/workdir/examples/input_tugas.pdf --output /app/workdir/output.pdf"
+   ```
+   
+   **Alternative for WSL/Docker Desktop on Windows:**
    ```bash
-   docker run --rm -v "$(pwd)":/app/workdir ghostpdfshield workdir/input.pdf --output workdir/output.pdf
+   docker run --rm -v "/host_mnt/c/Path/To/GhostPdfShield:/app/workdir" ghostpdfshield ./ghostpdfshield workdir/examples/input_tugas.pdf --output workdir/output.pdf
    ```
 
 ### Linux/macOS
